@@ -76,12 +76,13 @@ public class CarController {
 
 	// Find by make and colour
 	@GetMapping(path = "/findbymakeandcolour/{make}/{colour}")
-	public ResponseEntity<List<Cars>> findByMakeAndColour(@PathVariable String make, String colour) {
+	public ResponseEntity<List<Cars>> findByMakeAndColour(@PathVariable String make, @PathVariable String colour) {
 		return new ResponseEntity<List<Cars>>(this.service.findByMakeAndColour(make, colour), HttpStatus.OK);
 	}
 
 	// Find by model and colour
-	public ResponseEntity<List<Cars>> findByModelAndColour(@PathVariable String model, String colour) {
+	@GetMapping(path = "/findbymodelandcolour/{model}/{colour}")
+	public ResponseEntity<List<Cars>> findByModelAndColour(@PathVariable String model, @PathVariable String colour) {
 		return new ResponseEntity<List<Cars>>(this.service.findByModelAndColour(model, colour), HttpStatus.OK);
 	}
 
