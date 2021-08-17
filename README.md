@@ -1,5 +1,5 @@
 # NatWest-Project
-testing 1 2 3
+
 Why are we doing this?
 
 -To test our knowledge. After only 6 ish weeks can we build a database and maintain the data through a frontend HTML.
