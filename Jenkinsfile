@@ -4,7 +4,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 echo "Clone Repo"
-		sh 'git clone https://github.com/Etchells/NatWest-Project.git'
+		sh 'git fetch https://github.com/Etchells/NatWest-Project.git'
             }
         }
         stage('Build Jar') {
