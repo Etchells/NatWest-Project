@@ -10,6 +10,7 @@ pipeline {
         stage('Build Jar') {
             steps {
                 echo "Jar file is built here"
+		sh 'mvn clean package'
             }
         }
         stage('Run Jar') {
