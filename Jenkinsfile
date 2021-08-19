@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repo') {
             steps {
-                echo "Clone Repo testing"
+                echo "Clone Repo"
 		sh 'git fetch https://github.com/Etchells/NatWest-Project.git'
             }
         }
