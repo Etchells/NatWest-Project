@@ -16,7 +16,7 @@ pipeline {
         stage('Run Jar') {
             steps {
                 echo "The jar file runs here"
-		sh 'java -jar target/Garage-0.0.1-SNAPSHOT.jar &'
+		// sh 'java -jar target/Garage-0.0.1-SNAPSHOT.jar &'
             }
         }
     }
