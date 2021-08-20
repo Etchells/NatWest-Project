@@ -29,7 +29,7 @@ const renderPosts = (posts) => {
 }
 
 // const url = 'http://localhost:9002/readfromdb';
-const url = 'database-spring-application.c42lqjjeeosl.eu-west-1.rds.amazonaws.com:3306/readfromdb';
+const url = 'database-spring-application.c42lqjjeeosl.eu-west-1.rds.amazonaws.com:9002/readfromdb';
 const url2 = 'http://localhost:9002/create';
 const url3 = 'http://localhost:9002/delete';
 const url4 = 'http://localhost:9002/update';
