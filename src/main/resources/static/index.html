@@ -5,46 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/index.css">
-    <title>Garage</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
-    <div class="container"></div>
-    <div class="row mt-3">
-        <div class="col-md-6">
-            <h3>Car Maintenance</h3>
-            <form class="add-car-form">
-                <div class="form-group">
-                    <label for="make">Make</label>
-                    <input type="text" class="form-control" id="make-value" placeholder="Enter vehicle make">
-                </div>
-                <div class="form-group">
-                    <label for="model">Model</label>
-                    <input type="text" class="form-control" id="model-value" placeholder="Enter vehicle model">
-                </div>
-                <div class="form-group">
-                    <label for="colour">Colour</label>
-                    <input type="text" class="form-control" id="colour-value" placeholder="Enter vehicle colour">
-                </div>
-                <div class="form-group">
-                    <label for="reg">Reg</label>
-                    <input type="text" class="form-control" id="reg-value" placeholder="Enter vehicle reg number">
-                </div>
-                <br />
-                <button type="submit" class="btn btn-primary">Add/Update Car</button>
-                <br />
-            </form>
-            <br />
+    <div class="login">
+        <div class="login_content">
+            <div class="login_img">
+                <img class="main-pic"
+                    src="https://st2.depositphotos.com/3079665/5667/v/600/depositphotos_56675303-stock-illustration-mechanic-with-circle-shape.jpg"
+                    alt="Background login image">
+                <!--Need to find background image. Save file in assets/img-->
+            </div>
+            <div class="login_forms">
+                <form action="" class="login_registre" id="login-in">
+                    <h1 class="login_title">Sign In</h1>
+                    <div class="login_box">
+                        <i class="bx bx-user login_icon"></i>
+                        <input type="text" placeholder="Username" class="login_input">
+                    </div>
+                    <div class="login_box">
+                        <i class="bx bx-lock-alt login_icon"></i>
+                        <input type="password" placeholder="Password" class="login_input">
+                    </div>
+                    <a href="#" class="login_forgot">Forgot password?</a>
+                    <a href="/html/home.html" class="login_button">Sign In</a>
+                    <div>
+                        <span class="login_account">Don't have an Account</span>
+                        <span class="login_signin" id="sign-up">Sign Up</span>
+                    </div>
+                </form>
+                <form action="" class="login_create none" id="login-up">
+                    <h1 class="login_title">Create Account</h1>
+                    <div class="login_box">
+                        <i class="bx bx-user login_icon"></i>
+                        <input type="text" placeholder="Username" class="login_input">
+                    </div>
+                    <div class="login_box">
+                        <i class="bx bx-at login_icon"></i>
+                        <input type="text" placeholder="Email" class="login_input">
+                    </div>
+                    <div class="login_box">
+                        <i class="bx bx-lock-alt login_icon"></i>
+                        <input type="password" placeholder="Password" class="login_input">
+                    </div>
+                    <a href="#" class="login_button">Sign Up</a>
+                    <div>
+                        <span class="login_account">Already have an Account</span>
+                        <span class="login_signup" id="sign-in">Sign In</span>
+                    </div>
+                    <div class="login_social">
+                        <a href="#" class="login_social-icon"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="login_social-icon"><i class="bx bxl-twitter"></i></a>
+                        <a href="#" class="login_social-icon"><i class="bx bxl-google"></i></a>
+                    </div>
+                </form>
+            </div>
         </div>
-
-        <h3 class="lower-title">Car Inventory</h3>
-        <div class="cars-list row"></div>
     </div>
-    <script src="/js/crud.js"></script>
-
+    <script src="/js/login.js"></script>
 </body>
 
 </html>
