@@ -11,10 +11,18 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('Test Application') {
             steps {
-                echo "Testing would normally be done here"
-                //
+                echo "Testing Application"
+                sh 'mvn clean test'
+            }
+        }
+
+        stage('Saving Tests') {
+            steps {
+                echo "Creating directory Build Number_tests and moving reports there"
+                sh 'mkdir -p /home/jenkins/Tests/${BUILD_NUMBER}_tests/'
+                sh 'mv ./target/surefire-reports/*.txt /home/jenkins/Tests/${BUILD_NUMBER}_tests/'
             }
         }
 
@@ -28,32 +36,46 @@ pipeline {
         stage('Move Jar') {
             steps {
                 echo "Moving file outside of directory with build name"
-                //
+                sh 'mkdir -p /home/jenkins/Jars'
+                sh 'mkdir -p /home/jenkins/appservice'
+                sh 'mv ./target/*.jar /home/jenkins/Jars/project_jar.jar'
             }
         }
 
-        stage('Stop Services') {
+        stage('Stopping Service') {
             steps {
                 echo "Check to see if service is running and stops it"
-                //
+                sh 'bash stopservice.sh'
             }
         }
 
-        stage('New Service') {
-            steps {
-                echo "Create new service"
-                //
-            }
+        stage('Create new service file'){
+                        steps{
+                        sh ''' echo '#!/bin/bash
+sudo java -jar /home/jenkins/Jars/project_jar.jar' > /home/jenkins/appservice/start.sh
+sudo chmod +x /home/jenkins/appservice/start.sh'''
+                        sh '''echo '[Unit]
+Description=My SpringBoot App
+
+[Service]
+User=ubuntu
+Type=simple
+
+ExecStart=/home/jenkins/appservice/start.sh
+
+[Install]
+WantedBy=multi-user.target' > /home/jenkins/myApp.service'''
+                        sh'sudo mv /home/jenkins/myApp.service /etc/systemd/system/myApp.service'
+                        }
+                }
+                stage('Reload and restart service'){
+                        steps{
+                        sh 'sudo systemctl daemon-reload'
+                        sh 'sudo systemctl restart myApp.service'
+                        }
+                }
+
         }
-
-        stage('Reload & Start') {
-            steps {
-                echo "The jar file runs here"
-		// sh 'java -jar target/Garage-0.0.1-SNAPSHOT.jar &'
-            }
-
-        }
-
-    }
-
 }
+
+
