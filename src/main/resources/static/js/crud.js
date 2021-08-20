@@ -28,11 +28,14 @@ const renderPosts = (posts) => {
     carsList.innerHTML = output;
 }
 
-// const url = 'http://localhost:9002/readfromdb';
-const url = 'http://54.171.87.157:9002/readfromdb';
-const url2 = 'http://localhost:9002/create';
-const url3 = 'http://localhost:9002/delete';
-const url4 = 'http://localhost:9002/update';
+// const url = 'http://localhost:9002/readfromdb';  // This is the connection to MySQL Workbench
+const url = 'http://54.171.87.157:9002/readfromdb'; // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
+//const url2 = 'http://localhost:9002/create';      // This is the connection to MySQL Workbench
+const url2 = 'http://54.171.87.157:9002/create';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
+//const url3 = 'http://localhost:9002/delete';      // This is the connection to MySQL Workbench
+const url3 = 'http://54.171.87.157:9002/delete';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
+//const url4 = 'http://localhost:9002/update';      // This is the connection to MySQL Workbench
+const url4 = 'http://54.171.87.157:9002/update';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
 
 // Get - Read all the cars
 // Method: Get
@@ -125,7 +128,8 @@ addCarForm.addEventListener('submit', (e) => {
     let model = document.getElementById('model-value').value
     let colour = document.getElementById('colour-value').value
     let reg = document.getElementById('reg-value').value
-    fetch("http://localhost:9002/create", {
+    //fetch("http://localhost:9002/create", {       // This is the connection to MySQL Workbench
+    fetch("http://54.171.87.157:9002/create", {         // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
         method: 'POST',
         body: JSON.stringify({
             make: make,
