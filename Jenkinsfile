@@ -1,10 +1,11 @@
 pipeline {
     agent any
     stages {
-        stage('Clone Repo') {
+        stage('Clone/Fetch Repo') {
             steps {
-                echo "Clone Repo"
-		sh 'git fetch https://github.com/Etchells/NatWest-Project.git'
+                echo "Checking for Repo"
+		// sh 'git fetch https://github.com/Etchells/NatWest-Project.git'
+		sh 'bash checkgit.sh'
             }
         }
         stage('Build Jar') {
