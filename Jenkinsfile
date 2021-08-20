@@ -3,11 +3,18 @@ pipeline {
     stages {
         stage('Clone/Fetch Repo') {
             steps {
-                echo "Checking for Repo"
-		// sh 'git fetch https://github.com/Etchells/NatWest-Project.git'
+                echo "Checking to see if Repo exists! If it does then Fetch, if not then Clone"
 		sh 'bash checkgit.sh'
             }
         }
+
+        stage('Test') {
+            steps {
+                echo "Testing would normally be done here"
+                //
+            }
+        }
+
         stage('Build Jar') {
             steps {
                 echo "Jar file is built here"
