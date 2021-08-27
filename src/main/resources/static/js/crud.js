@@ -29,13 +29,13 @@ const renderPosts = (posts) => {
 }
 
 // const url = 'http://localhost:9002/readfromdb';  // This is the connection to MySQL Workbench
-const url = 'http://54.78.76.7:9002/readfromdb'; // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
+const url = 'http://3.249.226.95:9002/readfromdb'; // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
 //const url2 = 'http://localhost:9002/create';      // This is the connection to MySQL Workbench
-const url2 = 'http://54.78.76.7:9002/create';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
+const url2 = 'http://3.249.226.95:9002/create';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
 //const url3 = 'http://localhost:9002/delete';      // This is the connection to MySQL Workbench
-const url3 = 'http://54.78.76.7:9002/delete';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
+const url3 = 'http://3.249.226.95:9002/delete';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
 //const url4 = 'http://localhost:9002/update';      // This is the connection to MySQL Workbench
-const url4 = 'http://54.78.76.7:9002/update';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
+const url4 = 'http://3.249.226.95:9002/update';    // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
 
 // Get - Read all the cars
 // Method: Get
@@ -129,7 +129,7 @@ addCarForm.addEventListener('submit', (e) => {
     let colour = document.getElementById('colour-value').value
     let reg = document.getElementById('reg-value').value
     //fetch("http://localhost:9002/create", {       // This is the connection to MySQL Workbench
-    fetch("http://54.78.76.7:9002/create", {         // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
+    fetch("http://3.249.226.95:9002/create", {         // This is the connection through my EC2 Instance and AWS RDS Database (ip address will need to change)
         method: 'POST',
         body: JSON.stringify({
             make: make,
